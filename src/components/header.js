@@ -23,9 +23,15 @@ class Header extends Component {
   }
 
   render() {
+    let signedIn = false;
+
+    if (auth.currentUser()) {
+      signedIn = true;
+    }
+
     return (
       <div>
-        { auth.currentUser() &&
+        { signedIn &&
           <button onClick={() => { this.signOut() }} type='button'>Sign out</button>
         }
       </div>
